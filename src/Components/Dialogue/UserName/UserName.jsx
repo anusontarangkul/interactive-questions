@@ -9,8 +9,8 @@ import TextField from '@mui/material/TextField';
 
 import DoubleArrowOutlinedIcon from '@mui/icons-material/DoubleArrowOutlined';
 
-const UserName = ({ name, setName }) => {
-  const [completedName, setCompletedName] = useState(false);
+const UserName = ({ name, setName, completedName, setCompletedName }) => {
+  // const [completedName, setCompletedName] = useState(false);
   const [initial, setInitial] = useState('');
 
   const submitNameHandler = (e) => {
