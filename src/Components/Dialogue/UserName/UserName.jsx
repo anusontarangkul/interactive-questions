@@ -13,6 +13,8 @@ const UserName = () => {
   return (
     <Box
       sx={{
+        marginTop: '40px',
+        marginLeft: 'auto',
         display: 'flex',
         border: '2px black solid',
         maxWidth: '500px',
@@ -37,13 +39,31 @@ const UserName = () => {
           className: 'textfield__border',
         }}
         sx={{
+          // padding: 'px',
+
+          margin: '5px 15px 5px 5px',
           width: '400px',
+
           '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
             borderColor: 'white',
+            '& label.Mui-focused': {
+              borderColor: 'white',
+            },
           },
         }}
       />
-      <DoubleArrowOutlinedIcon></DoubleArrowOutlinedIcon>
+      <Avatar
+        sx={{
+          cursor: 'pointer',
+          marginLeft: 'auto',
+          marginRight: '10px',
+          height: '50px',
+          width: '50px',
+          fontSize: '30px',
+        }}
+      >
+        <DoubleArrowOutlinedIcon />
+      </Avatar>
     </Box>
   );
 };
