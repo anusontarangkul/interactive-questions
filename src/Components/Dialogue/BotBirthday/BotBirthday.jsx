@@ -32,7 +32,7 @@ const BotBirthday = ({ name }) => {
       >
         🤖
       </Avatar>
-      <Typography sx={{ fontSize: '22px' }}>
+      <Typography sx={{ fontSize: '22px' }} data-testid='bot-birthday'>
         Nice to meet you <strong>{name}</strong>! Since this is your first time
         meeting me, let's say my birthday is today,{' '}
         {moment().format('MMMM Do, YYYY')}.{' '}

@@ -15,6 +15,7 @@ const UserName = ({ name, setName, completedName, setCompletedName }) => {
 
   const submitNameHandler = (e) => {
     if (name.length === 0) return;
+    setName(name.trim());
     setInitial(name[0]);
     setCompletedName(true);
   };
