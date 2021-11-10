@@ -14,7 +14,7 @@ const UserName = ({ name, setName }) => {
   const [initial, setInitial] = useState('');
 
   const submitNameHandler = (e) => {
-    // console.log(initial);
+    if (name.length === 0) return;
     setInitial(name[0]);
     setCompletedName(true);
   };
@@ -46,8 +46,6 @@ const UserName = ({ name, setName }) => {
           sx={{
             height: '50px',
             width: '50px',
-            // marginLeft: 'auto',
-            // marginRight: '5px',
             margin: '6.5px 5px 6.5px auto',
           }}
         >
@@ -76,6 +74,7 @@ const UserName = ({ name, setName }) => {
         id='outlined-basic'
         label='Enter Name Here..'
         // variant='outlined'
+        value={name}
         required
         autoComplete='off'
         className='text-root'
@@ -84,6 +83,7 @@ const UserName = ({ name, setName }) => {
         }}
         inputProps={{
           className: 'textfield__border',
+          'data-testid': 'name-input',
         }}
         sx={{
           margin: '5px 15px 5px 5px',
@@ -106,6 +106,7 @@ const UserName = ({ name, setName }) => {
           width: '50px',
           fontSize: '30px',
         }}
+        data-testid='name-submit-avatar'
       >
         <DoubleArrowOutlinedIcon />
       </Avatar>
