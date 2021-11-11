@@ -1,0 +1,15 @@
+.textfield__label {
+  color: aliceblue !important;
+  font-size: '55px';
+}
+
+.textfield__border {
+  color: aliceblue !important;
+  border-color: aliceblue !important;
+  font-size: '55px';
+}
+
+.MuiSvgIcon-root {
+  color: white;
+  height: '30px';
+}

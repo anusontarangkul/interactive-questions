@@ -4,8 +4,6 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import moment from 'moment';
 
-console.log(moment().format('MMMM Do YYYY'));
-
 const BotBirthday = ({ name }) => {
   return (
     <Box
