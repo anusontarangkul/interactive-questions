@@ -69,6 +69,7 @@ const UserBirthday = ({ completedBirthday, setCompletedBirthday, initial }) => {
         padding: '10px 10px',
         backgroundColor: '#4180ec',
         color: 'white',
+        marginBottom: '35px',
       }}
     >
       <LocalizationProvider dateAdapter={AdapterDateFns}>

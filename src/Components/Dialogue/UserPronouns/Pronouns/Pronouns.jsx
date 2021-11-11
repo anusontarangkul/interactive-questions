@@ -2,7 +2,10 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const Pronouns = ({ emoji, text1, text2 }) => {
+const Pronouns = ({ emoji, text1, text2, setPronoun, pronoun }) => {
+  const handlePronounSubmit = () => {
+    setPronoun({ emoji, text1, text2 });
+  };
   return (
     <Box
       sx={{
@@ -12,12 +15,13 @@ const Pronouns = ({ emoji, text1, text2 }) => {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
-        // marginLeft: emoji === '😊' ? '-4px' : '0px',
       }}
     >
       <Box
+        onClick={handlePronounSubmit}
         sx={{
-          border: 'black 1px solid',
+          border:
+            pronoun.emoji === emoji ? 'yellow 3px solid' : 'black 1px solid',
           height: '50px',
           width: '65px',
           justifyContent: 'center',
@@ -25,7 +29,8 @@ const Pronouns = ({ emoji, text1, text2 }) => {
           display: 'flex',
           fontSize: '30px',
           marginBottom: '3px',
-          //   marginRight: emoji === '👨' ? '6px' : '0px',
+          backgroundColor: '#8cb4f3',
+          cursor: 'pointer',
         }}
       >
         {emoji}

@@ -36,7 +36,7 @@ const Dialogue = () => {
         )}
       </>
       {completedBirthday && <BotPronouns />}
-      {completedBirthday && <UserPronouns />}
+      {completedBirthday && <UserPronouns initial={initial} />}
     </Container>
   );
 };
