@@ -5,6 +5,7 @@ import UserName from './UserName/UserName';
 import BotBirthday from './BotBirthday/BotBirthday';
 import UserBirthday from './UserBirthday/UserBirthday';
 import BotPronouns from './BotPronouns/BotPronouns';
+import UserPronouns from './UserPronouns/UserPronouns';
 
 const Dialogue = () => {
   const [name, setName] = useState('');
@@ -35,6 +36,7 @@ const Dialogue = () => {
         )}
       </>
       {completedBirthday && <BotPronouns />}
+      {completedBirthday && <UserPronouns />}
     </Container>
   );
 };
