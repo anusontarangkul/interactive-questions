@@ -12,13 +12,12 @@ const UserPronouns = ({ initial }) => {
   const [completedPronoun, setCompletedPronoun] = useState(false);
 
   const pronounOptions = [
-    { emoji: '👨', text1: 'He / ', text2: 'Him' },
-    { emoji: '👩', text1: 'She / ', text2: 'Her' },
-    { emoji: '😊', text1: 'They / ', text2: 'Them' },
+    { emoji: '👨', text1: 'He /', text2: 'Him' },
+    { emoji: '👩', text1: 'She /', text2: 'Her' },
+    { emoji: '😊', text1: 'They /', text2: 'Them' },
   ];
   const submitGenderHandler = () => {
-    if (pronoun === '') return;
-    console.log(pronoun);
+    if (pronoun.emoji === '') return;
     setCompletedPronoun(true);
   };
   if (completedPronoun) {
@@ -38,7 +37,10 @@ const UserPronouns = ({ initial }) => {
           marginBottom: '35px',
         }}
       >
-        <Typography sx={{ fontSize: '22px', marginLeft: '5px' }}>
+        <Typography
+          data-testid='selected-pronouns'
+          sx={{ fontSize: '22px', marginLeft: '5px' }}
+        >
           My pronouns are{' '}
           <strong>{`${pronoun.text1} ${pronoun.text2} ${pronoun.emoji}`}</strong>
           .
