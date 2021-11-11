@@ -5,7 +5,7 @@ import UserName from '../UserName';
 const mockSetName = jest.fn()
 
 describe('UserName Component', () => {
-    test('arrow button submits form works', () => {
+    test('arrow button submits name works', () => {
         render(<UserName setName={mockSetName} name={''} />);
         const submitNameHandler = jest.fn()
 

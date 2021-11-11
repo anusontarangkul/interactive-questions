@@ -1,5 +1,4 @@
 import { render, screen, getByTestId } from '@testing-library/react';
-import mockDate from "mockdate";
 
 import BotBirthday from '../BotBirthday';
 

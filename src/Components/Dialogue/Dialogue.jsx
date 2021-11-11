@@ -9,6 +9,8 @@ const Dialogue = () => {
   const [name, setName] = useState('');
   const [displayBirthday, setDisplayBirthday] = useState(false);
   const [completedName, setCompletedName] = useState(false);
+  const [completedBirthday, setCompletedBirthday] = useState(false);
+  const [initial, setInitial] = useState('');
 
   return (
     <Container>
@@ -18,10 +20,18 @@ const Dialogue = () => {
         setName={setName}
         completedName={completedName}
         setCompletedName={setCompletedName}
+        initial={initial}
+        setInitial={setInitial}
       />
       <>
         {completedName && <BotBirthday name={name} />}
-        {completedName && <UserBirthday />}
+        {completedName && (
+          <UserBirthday
+            completedBirthday={completedBirthday}
+            setCompletedBirthday={setCompletedBirthday}
+            initial={initial}
+          />
+        )}
       </>
     </Container>
   );

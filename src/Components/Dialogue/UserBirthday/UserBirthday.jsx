@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UserBirthday.css';
+import moment from 'moment';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -11,10 +12,50 @@ import DatePicker from '@mui/lab/DatePicker';
 
 import DoubleArrowOutlinedIcon from '@mui/icons-material/DoubleArrowOutlined';
 
-const UserBirthday = () => {
+const UserBirthday = ({ completedBirthday, setCompletedBirthday, initial }) => {
   const [value, setValue] = React.useState(null);
 
-  const submitDateHandler = () => {};
+  const submitDateHandler = () => {
+    const bday = moment(value).format('MMMM Do, YYYY');
+    if (bday === 'Invalid date') {
+      return;
+    }
+    setValue(bday);
+
+    setCompletedBirthday(true);
+  };
+  if (completedBirthday) {
+    return (
+      <Box
+        sx={{
+          marginTop: '35px',
+          marginLeft: 'auto',
+          display: 'flex',
+          border: '2px black solid',
+          maxWidth: '500px',
+          borderRadius: '10px',
+          alignItems: 'center',
+          padding: '10px 10px',
+          backgroundColor: '#4180ec',
+          color: 'white',
+        }}
+      >
+        <Typography sx={{ fontSize: '22px', marginLeft: '5px' }}>
+          My birthday is <strong>{value}</strong>.
+        </Typography>
+        <Avatar
+          sx={{
+            height: '50px',
+            width: '50px',
+            margin: '6.5px 5px 6.5px auto',
+          }}
+          data-testid='initials-avatar'
+        >
+          {initial}
+        </Avatar>
+      </Box>
+    );
+  }
   return (
     <Box
       sx={{
@@ -33,10 +74,12 @@ const UserBirthday = () => {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           label='Enter Birthday Here..'
+          maxDate={new Date()}
           value={value}
           onChange={(newValue) => {
             setValue(newValue);
           }}
+          data-testid='date-test'
           InputProps={{ className: 'textfield__border' }}
           renderInput={(params) => (
             <TextField
