@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Tapply Bot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive bot to chat with.
 
-## Available Scripts
+## Desktop
 
-In the project directory, you can run:
+![demo](./images-readme/desktop.gif)
 
-### `yarn start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+|                                         |                                         |                                             |
+| :-------------------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|       [Introduction](#tapply-bot)       | [Table of Contents](#table-of-contents) | [Development Process](#development-process) |
+|             [Tests](#tests)             |        [Deployment](#deployment)        |    [Code Hightlights](#code-highlights)     |
+| [Technologies Used](#Technologies-Used) |           [Credits](#Credits)           |             [License](#License)             |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Development Process
 
-### `yarn test`
+### Created Mockup in Adobe XD.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![mockup](./images-readme/mockup.png)
 
-### `yarn build`
+### Used GitHub Projects and Branches to organize work flow.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Projects
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![projects](./images-readme/projects.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Branches
 
-### `yarn eject`
+![branches](./images-readme/branches.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Development
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Header was a stateless component for the appl. The Dialogue component was the parent component for the components involving the User and Bot. React useState Hooks were usered to keep state of the name, birthday, and gender. There were hooks for those values and hooks for once those values are completed to update the next dialogue conversation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Unit tests were created.
 
-## Learn More
+```
+npm test
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Deployed](https://calculator-react1.netlify.app/) using netlify.
 
-### Code Splitting
+### Code Highlights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This is the function for submitting the user name. The function first validates that the name is filled out. Next it trims unecessary space for the name. The first index is taken as the index and we update the completedName state to be true in order to render the next dialogue.
 
-### Analyzing the Bundle Size
+```JavaScript
+  const submitNameHandler = (e) => {
+    if (name.length === 0) return;
+    setName(name.trim());
+    setInitial(name[0]);
+    setCompletedName(true);
+  };
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Conditional render a Box element once the user fills out the name. THe state is updated for completedName to be true and a new Box is rendered showing the name.
 
-### Making a Progressive Web App
+```JavaScript
+  if (completedName) {
+    return (
+      <Box
+        sx={{
+          marginTop: '35px',
+          marginLeft: 'auto',
+          display: 'flex',
+          border: '2px black solid',
+          maxWidth: '500px',
+          borderRadius: '10px',
+          alignItems: 'center',
+          padding: '10px 10px',
+          backgroundColor: '#4180ec',
+          color: 'white',
+        }}
+      >
+        <Typography sx={{ fontSize: '22px', marginLeft: '5px' }}>
+          Hi Tapply Bot! My name is <strong>{name}</strong>.
+        </Typography>
+        <Avatar
+          sx={{
+            height: '50px',
+            width: '50px',
+            margin: '6.5px 5px 6.5px auto',
+          }}
+        >
+          {initial}
+        </Avatar>
+      </Box>
+    );
+  }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Technologies Used
 
-### Advanced Configuration
+### Front End Library
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [React](https://reactjs.org/)
 
-### Deployment
+### UI Library
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [MUI](https://mui.com/)
 
-### `yarn build` fails to minify
+### Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [react-testing-library](https://reactjs.org/docs/testing.html)
+
+## Credits
+
+|                           |                                                                                                                                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **David Anusontarangkul** | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/anusontarangkul/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/anusontarangkul) |
+
+## License
+
+Copyright 2021
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
