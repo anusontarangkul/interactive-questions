@@ -9,7 +9,6 @@ import UserPronouns from './UserPronouns/UserPronouns';
 
 const Dialogue = () => {
   const [name, setName] = useState('');
-  const [displayBirthday, setDisplayBirthday] = useState(false);
   const [completedName, setCompletedName] = useState(false);
   const [completedBirthday, setCompletedBirthday] = useState(false);
   const [initial, setInitial] = useState('');
