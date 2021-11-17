@@ -44,7 +44,7 @@ npm test
 
 ## Deployment
 
-[Deployed](https://calculator-react1.netlify.app/) using netlify.
+[Deployed](https://tapply-bot.netlify.app/) using netlify.
 
 ### Code Highlights
 
